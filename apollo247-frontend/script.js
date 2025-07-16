@@ -2,6 +2,8 @@ console.log("Apollo Clone is working!");
 
 let currentPage = 1;
 let totalPages = 1;
+const loader = document.getElementById("loader");
+
 document.addEventListener("DOMContentLoaded", () => {
   console.log("📡 Initial doctor data fetch...");
   fetchDoctors();
@@ -24,8 +26,8 @@ function fetchDoctors() {
   const experience = document.getElementById("experienceFilter").value;
   const search = document.getElementById("searchInput").value.trim();
 
+let url = `https://apollo247-backend-c3p6.onrender.com/api/doctors?page=${currentPage}`;
 
-  let url = `http://localhost:5000/api/doctors?page=${currentPage}`;
 
 if (gender) url += `&gender=${gender}`;
 if (experience) url += `&experience=${experience}`;
